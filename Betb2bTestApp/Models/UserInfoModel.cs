@@ -1,11 +1,10 @@
-﻿using System.Runtime.Serialization;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace Betb2bTestApp.Models
 {
     public class UserInfoModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         
         public string Name { get; set; }
         
@@ -38,10 +37,17 @@ namespace Betb2bTestApp.Models
 
     public class UserOperationResponse
     {
-        public string Message { get; set; }
+        [XmlAttribute("ErrorId")]
         public int ErrorId { get; set; }
+
+        [XmlAttribute("Message")]
+        public string Message { get; set; }
+
+        //todo add field to response
+        [XmlAttribute("Success")]
         public bool Success => ErrorId == 0;
-        public UserInfoModel User { get; set; }
+        [XmlAttribute("user")]
+        public User User { get; set; }
     }
 
     public class GetUserRequest
@@ -55,17 +61,12 @@ namespace Betb2bTestApp.Models
     }
 
     [XmlRoot("Response")]
-    public class CreateUserResponse
+    public class CreateUserResponse : UserOperationResponse
     {
-        [XmlAttribute("ErrorId")]
-        public int ErrorId { get; set; }
 
-        [XmlAttribute("Success")]
-        public bool Success => ErrorId == 0;
-        [XmlAttribute("user")]
-        public User User { get; set; }
     }
 
+    [XmlRoot("Response")]
     public class RemoveUserResponse : UserOperationResponse
     {
 
@@ -74,7 +75,7 @@ namespace Betb2bTestApp.Models
     public class SetStatusRequest
     {
         public int Id { get; set; }
-        public Status Status { get; set; }
+        public string Status { get; set; }
     }
 
     public class SetStatusResponse : UserInfoModel

@@ -6,6 +6,7 @@ namespace Betb2bTestApp.Models
 {
     public class Status
     {
+        public static readonly Status NotDefined = new Status("NotDefined", 0);
         public static readonly Status New = new Status("New", 1);
         public static readonly Status Active = new Status("Active", 2);
         public static readonly Status Blocked = new Status("Blocked", 3);
@@ -13,7 +14,7 @@ namespace Betb2bTestApp.Models
 
         private static readonly IList<Status> Statuses = new List<Status>
         {
-            New, Active, Blocked, Deleted
+            NotDefined, New, Active, Blocked, Deleted
         };
 
         public string Title { get; }
@@ -28,8 +29,12 @@ namespace Betb2bTestApp.Models
         {
         }
 
+        public static implicit operator Status(int statusId) => Find(statusId);
         public static implicit operator Status(string statusTitle) => Find(statusTitle);
         public static implicit operator string(Status status) => status.Title;
+        public static implicit operator int(Status status) => status.Id;
+
+
 
         public static Status Find(string statusTitle)
         {

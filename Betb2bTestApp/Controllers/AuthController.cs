@@ -38,6 +38,7 @@ namespace Betb2bTestApp.Controllers
         [HttpPost]
         [Consumes("application/x-www-form-urlencoded")]
         [Produces("application/json")]
+        [Route("SetStatus")]
         public IActionResult SetStatus([FromForm] SetStatusRequest request)
         {
             var result = _userService.SetStatus(request);
