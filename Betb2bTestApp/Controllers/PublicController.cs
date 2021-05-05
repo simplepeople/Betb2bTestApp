@@ -1,5 +1,5 @@
-﻿using Betb2bTestApp.Models;
-using Betb2bTestApp.Services;
+﻿using Betb2bTestApp.Services;
+using Betb2bTestAppModels.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Betb2bTestApp.Controllers
@@ -21,7 +21,7 @@ namespace Betb2bTestApp.Controllers
         public IActionResult UserInfo([FromQuery] GetUserRequest request)
         {
             var result = _userService.Get(request);
-            return result != null ? Ok($"Id: {result.Id} Name: {result.Name} Status: {result.Status}") : NotFound();
+            return Ok(result != null?$"Id: {result.Id} Name: {result.Name} Status: {result.Status}":$"User with id {request.Id} wasn't found");
         }
     }
 }

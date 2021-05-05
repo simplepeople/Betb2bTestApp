@@ -1,4 +1,4 @@
-﻿using Betb2bTestApp.Models;
+﻿using Betb2bTestAppModels.Models;
 
 namespace Betb2bTestApp.Services
 {

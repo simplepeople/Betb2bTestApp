@@ -1,5 +1,5 @@
-﻿using Betb2bTestApp.Models;
-using Betb2bTestApp.Services;
+﻿using Betb2bTestApp.Services;
+using Betb2bTestAppModels.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Betb2bTestApp.Controllers

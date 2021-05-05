@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Betb2bTestApp.Models
+namespace Betb2bTestAppModels.Models
 {
     public class Status
     {

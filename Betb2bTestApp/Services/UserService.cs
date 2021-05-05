@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Betb2bTestApp.Infrastructure;
-using Betb2bTestApp.Models;
+using Betb2bTestAppModels.Models;
 
 namespace Betb2bTestApp.Services
 {
@@ -10,19 +10,22 @@ namespace Betb2bTestApp.Services
     //to test app since requirements so different and I don't have a lot of time
     public class UserService : IUserService
     {
+        private readonly ISimpleCache<int, UserInfoModel> _simpleCache;
+
+        public UserService(ISimpleCache<int, UserInfoModel> simpleCache)
+        {
+            _simpleCache = simpleCache;
+        }
+
         public GetUserResponse Get(GetUserRequest request)
         {
-            DbUser dbUser;
-            using (var context = new Betb2bTestAppContext())
-            {
-                dbUser = context.Users.FirstOrDefault(x => x.Id == request.Id);
-            }
-
+            if (!_simpleCache.TryGet(request.Id, out var user))
+                return null;
             return new GetUserResponse
             {
-                Name = dbUser?.Name,
+                Name = user.Name,
                 Id = request.Id,
-                Status = (Status) (dbUser?.Status ?? Status.NotDefined)
+                Status = (Status)user.Status
             };
         }
 
@@ -133,8 +136,8 @@ namespace Betb2bTestApp.Services
             return new SetStatusResponse
             {
                 Name = dbUser?.Name,
-                Id = dbUser?.Id,
-                Status = (Status)(dbUser?.Status ?? Status.NotDefined)
+                Id = dbUser?.Id ?? 0,
+                Status = (Status) (dbUser?.Status ?? Status.NotDefined)
             };
         }
 

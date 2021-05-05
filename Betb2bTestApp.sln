@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betb2bTestApp", "Betb2bTestApp\Betb2bTestApp.csproj", "{49CF129A-E575-4DA7-BDA1-DA6E342A5E77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Betb2bTestApp", "Betb2bTestApp\Betb2bTestApp.csproj", "{49CF129A-E575-4DA7-BDA1-DA6E342A5E77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betb2bTestAppConsole", "Betb2bTestAppConsole\Betb2bTestAppConsole.csproj", "{71566312-2636-4E57-8F26-412A4302B45C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betb2bTestAppModels", "Betb2bTestAppModels\Betb2bTestAppModels.csproj", "{FEE4961A-7310-4339-93DA-C1BE0BB8464B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{49CF129A-E575-4DA7-BDA1-DA6E342A5E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49CF129A-E575-4DA7-BDA1-DA6E342A5E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49CF129A-E575-4DA7-BDA1-DA6E342A5E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71566312-2636-4E57-8F26-412A4302B45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71566312-2636-4E57-8F26-412A4302B45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71566312-2636-4E57-8F26-412A4302B45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71566312-2636-4E57-8F26-412A4302B45C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEE4961A-7310-4339-93DA-C1BE0BB8464B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE4961A-7310-4339-93DA-C1BE0BB8464B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE4961A-7310-4339-93DA-C1BE0BB8464B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE4961A-7310-4339-93DA-C1BE0BB8464B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
