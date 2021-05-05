@@ -21,7 +21,7 @@ namespace Betb2bTestAppConsole
 
         private static readonly Random Rnd = new();
 
-        private static readonly HttpClient Client = new();
+        private static readonly HttpClient Client = new HttpClient().SetBasicAuthorization(AuthInfo.AdminLogin, AuthInfo.AdminPassword);
 
         private static readonly string _baseUrl = @"http://localhost:18405/";
 

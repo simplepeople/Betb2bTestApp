@@ -1,6 +1,7 @@
 using Betb2bTestApp.Infrastructure;
 using Betb2bTestApp.Services;
 using Betb2bTestAppModels.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -28,6 +29,8 @@ namespace Betb2bTestApp
             services.AddScoped<IUserService, UserService>();
             services.AddSingleton<ISimpleCache<int, UserInfoModel>, SimpleCache<int, UserInfoModel>>();
             services.AddHostedService<CacheFillerService>();
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +42,8 @@ namespace Betb2bTestApp
             }
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

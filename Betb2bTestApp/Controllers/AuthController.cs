@@ -1,11 +1,13 @@
 ﻿using Betb2bTestApp.Services;
 using Betb2bTestAppModels.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Betb2bTestApp.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class AuthController : ControllerBase
     {
         private readonly IUserService _userService;
